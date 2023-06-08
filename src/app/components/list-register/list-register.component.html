@@ -1,10 +1,22 @@
 <div class="container">
   <p-table
-    [tableStyle]="{ 'min-width': '50rem' }"
-    [sortOrder]="1"
-    sortField="nome"
-    [value]="users"
+  #dt2
+  dataKey="id"
+  [tableStyle]="{ 'min-width': '50rem' }"
+  [sortOrder]="1"
+  sortField="nome"
+  [value]="users"
+  [globalFilterFields]="['nome','email', 'cpf', 'celular', 'validacao']"
   >
+  <ng-template pTemplate="caption">
+    <div class="input-group mb-3 justify-content-end">
+      <!-- <span class="p-input-icon-left ml-auto">
+
+        </span> -->
+        <span class="input-group-text" id="basic-addon1"><i class="pi pi-search"></i></span>
+        <input pInputText type="text" #input class="form-control" style="max-width: 125px;" placeholder="Pesquisar" (input)="dt2.filterGlobal(input.value, 'contains')"  />
+    </div>
+</ng-template>
     <ng-template pTemplate="header">
       <tr>
         <th>Id</th>

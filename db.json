@@ -47,7 +47,6 @@
     {
       "nome": "fulano",
       "email": "fulano@gmail.com",
-      "cpf": "123.456.784-55",
       "celular": "(15) 61651-6516",
       "conhecimentos": [
         {
@@ -59,8 +58,30 @@
           "code": 3
         }
       ],
-      "validacao": null,
+      "validacao": "Não validado",
       "id": 4
+    },
+    {
+      "nome": "eric coelho",
+      "email": "123@gmail.com",
+      "cpf": "365.436.543-65",
+      "celular": "(65) 41436-5436",
+      "conhecimentos": [
+        {
+          "name": "Git",
+          "code": 1
+        },
+        {
+          "name": "PHP",
+          "code": 3
+        },
+        {
+          "name": "TypeScript",
+          "code": 7
+        }
+      ],
+      "validacao": null,
+      "id": 5
     }
   ]
 }

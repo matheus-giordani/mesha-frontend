@@ -2,6 +2,7 @@ import { Conhecimento } from './../form-register/conhecimento.interface';
 import { CommonService } from './../common.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from './user.interface';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-list-register',
@@ -22,4 +23,8 @@ export class ListRegisterComponent implements OnInit {
       console.log(res);
     });
   }
+
+  clear(table: Table) {
+    table.clear();
+}
 }
