@@ -19,26 +19,17 @@
           "code": 6
         }
       ],
-      "validacao": "Não validado",
+      "validacao": "Validado",
       "id": 1
     },
     {
       "nome": "fdfasdfasd",
       "email": "fasdfasdfasd@gmail.com",
-      "cpf": "23135465461",
       "celular": "16516681635",
       "conhecimentos": [
         {
           "name": "Git",
           "code": 1
-        },
-        {
-          "name": "React",
-          "code": 2
-        },
-        {
-          "name": "NodeJS",
-          "code": 4
         }
       ],
       "validacao": "Validado",
@@ -63,7 +54,7 @@
           "code": 7
         }
       ],
-      "validacao": null,
+      "validacao": "Validado",
       "id": 3
     },
     {

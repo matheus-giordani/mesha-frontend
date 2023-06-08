@@ -9,7 +9,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Conhecimento } from './conhecimento.interface';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Route, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { firstValueFrom } from 'rxjs';
 import { User } from '../list-register/user.interface';
@@ -40,7 +40,8 @@ export class FormRegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private commonService: CommonService,
     private route: ActivatedRoute,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {
     this.formRegister = this.formBuilder.group({
       nome: ['', [Validators.required]],
@@ -68,6 +69,7 @@ export class FormRegisterComponent implements OnInit {
       this.commonService.getUser(this.queryParams).subscribe({
         next: (res) => {
           this.formRegister.patchValue(res);
+          this.formRegister.get('cpf')?.disable()
         },
       });
     }
@@ -113,7 +115,13 @@ export class FormRegisterComponent implements OnInit {
     observable$.subscribe({
       next: (res) => {
         this.toastr.success('Formulário enviado com sucesso');
-        this.formRegister.reset();
+        if(this.queryParams){
+          this.router.navigate(['..','registros'])
+        }
+        else{
+
+          this.formRegister.reset();
+        }
       },
       error: (error) => {
         this.toastr.error(
