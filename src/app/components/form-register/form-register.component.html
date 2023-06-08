@@ -57,15 +57,13 @@
   </div>
   <div class="row align-items-end mt-4" *ngIf="queryParams">
     <div class="align-self-end col-12 col-md-4">
-
       <label>Validação</label>
-        <p-selectButton
-          [options]="stateOptions"
-          formControlName="validacao"
-          optionLabel="label"
-          optionValue="value"
-        ></p-selectButton>
-
+      <p-selectButton
+        [options]="stateOptions"
+        formControlName="validacao"
+        optionLabel="label"
+        optionValue="value"
+      ></p-selectButton>
     </div>
   </div>
 

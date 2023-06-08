@@ -1,4 +1,4 @@
 export interface Conhecimento {
-  name: string
-  code: number
+  name: string;
+  code: number;
 }

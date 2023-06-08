@@ -1,18 +1,10 @@
-import { CommonService } from '../common.service';
 import { Component, OnInit } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  ValidatorFn,
-  Validators,
-} from '@angular/forms';
-import { Conhecimento } from './conhecimento.interface';
-import { ActivatedRoute, Params, Route, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { firstValueFrom } from 'rxjs';
-import { User } from '../list-register/user.interface';
+import { CommonService } from '../common.service';
+import { Conhecimento } from './conhecimento.interface';
 
 @Component({
   selector: 'app-form-register',
@@ -82,8 +74,14 @@ export class FormRegisterComponent implements OnInit {
             .replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4')
         );
     });
-    this.formRegister.get('celular')?.valueChanges.subscribe((res: string) =>{
-      this.formRegister.get('celular')?.patchValue(res.replace(/\D+/g, '').replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3'))
+    this.formRegister.get('celular')?.valueChanges.subscribe((res: string) => {
+      this.formRegister
+        .get('celular')
+        ?.patchValue(
+          res
+            .replace(/\D+/g, '')
+            .replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3')
+        );
     });
   }
 

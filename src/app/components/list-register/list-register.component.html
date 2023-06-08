@@ -1,26 +1,60 @@
 <div class="container">
-
-  <p-table [columns]="cols" [value]="users" [tableStyle]="{ 'min-width': '50rem' }" [sortOrder]="1" sortField="nome">
-    <ng-template pTemplate="header" let-columns>
+  <p-table
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [sortOrder]="1"
+    sortField="nome"
+    [value]="users"
+  >
+    <ng-template pTemplate="header">
       <tr>
-        <th *ngFor="let col of columns" [pSortableColumn]="col.header === 'Nome'? 'nome': ''"    >
-         {{ col.header }}  <p-sortIcon *ngIf="col.header === 'Nome'" field="nome" ></p-sortIcon>
-
+        <th>Id</th>
+        <th pSortableColumn="nome">
+          Nome<p-sortIcon field="nome"></p-sortIcon>
         </th>
+        <th>Email</th>
+        <th>CPF</th>
+        <th>Celular</th>
         <th>Conhecimentos</th>
         <th>Validação</th>
         <th>Ações</th>
       </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-rowData let-columns="columns">
-    <tr>
-      <td *ngFor="let col of columns">
-        {{ rowData[col.field] }}
-      </td>
-      <td > <ul *ngFor="let conhecimento of rowData['conhecimentos']">{{conhecimento.name}}</ul></td>
-      <td>{{rowData["validacao"] || "Processando validação"}}</td>
-      <td> <button type="button" [routerLink]="[ '../' , rowData['nome'], 'validar']" [queryParams]="{id:rowData['id']}" class="btn btn-primary">Validar</button></td>
-    </tr>
-  </ng-template>
-</p-table>
+    </ng-template>
+    <ng-template pTemplate="body" let-user let-rowIndex>
+      <tr>
+        <td>
+          {{ user.id }}
+        </td>
+        <td>
+          {{ user.nome }}
+        </td>
+        <td>
+          {{ user.email }}
+        </td>
+        <td style="width: 200px;">
+          {{ user.cpf }}
+        </td>
+        <td style="width: 150px;">
+          {{ user.celular }}
+        </td>
+        <td>
+          <ul *ngFor="let conhecimento of user['conhecimentos']">
+            {{
+              conhecimento.name
+            }}
+          </ul>
+        </td>
+        <td>{{ user["validacao"] || "Processando validação" }}</td>
+        <td>
+          <button
+            type="button"
+            [routerLink]="['../', user['nome'], 'validar']"
+            [queryParams]="{ id: user.id }"
+            class="btn btn-primary"
+          >
+            Validar
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>
