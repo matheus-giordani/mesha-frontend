@@ -3,7 +3,7 @@
     {
       "nome": "matheus giordani da silva",
       "email": "matheus.giordanioliveira@gmail.com",
-      "cpf": "12910785416",
+      "cpf": "129.107.854-16",
       "celular": "82991079412",
       "conhecimentos": [
         {
@@ -25,7 +25,7 @@
     {
       "nome": "eric coelho",
       "email": "erIC@gmail.com",
-      "cpf": "12345678945",
+      "cpf": "123.456.789-45",
       "celular": "13245678965",
       "conhecimentos": [
         {
@@ -43,6 +43,24 @@
       ],
       "validacao": null,
       "id": 3
+    },
+    {
+      "nome": "fulano",
+      "email": "fulano@gmail.com",
+      "cpf": "123.456.784-55",
+      "celular": "(15) 61651-6516",
+      "conhecimentos": [
+        {
+          "name": "React",
+          "code": 2
+        },
+        {
+          "name": "PHP",
+          "code": 3
+        }
+      ],
+      "validacao": null,
+      "id": 4
     }
   ]
 }

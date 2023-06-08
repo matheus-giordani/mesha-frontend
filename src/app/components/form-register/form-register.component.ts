@@ -53,7 +53,7 @@ export class FormRegisterComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern(/(\d{3})(\d{3})(\d{3})(\d{2})/),
+          Validators.pattern(/(\d{3}).(\d{3}).(\d{3})-(\d{2})/),
         ],
       ],
       celular: ['', [Validators.required]],
@@ -63,16 +63,28 @@ export class FormRegisterComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.formRegister.addAsyncValidators;
     this.queryParams = await this.getQueryParam();
     if (this.queryParams) {
       this.commonService.getUser(this.queryParams).subscribe({
         next: (res) => {
           this.formRegister.patchValue(res);
-          this.formRegister.get('cpf')?.disable()
+          this.formRegister.get('cpf')?.disable();
         },
       });
     }
+
+    this.formRegister.get('cpf')?.valueChanges.subscribe((res: string) => {
+      this.formRegister
+        .get('cpf')
+        ?.patchValue(
+          res
+            .replace(/\D+/g, '')
+            .replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4')
+        );
+    });
+    this.formRegister.get('celular')?.valueChanges.subscribe((res: string) =>{
+      this.formRegister.get('celular')?.patchValue(res.replace(/\D+/g, '').replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3'))
+    });
   }
 
   async getQueryParam(): Promise<string | null> {
@@ -104,18 +116,13 @@ export class FormRegisterComponent implements OnInit {
         });
         if (!result) {
           this.enviarFormulario();
-
         } else {
           this.toastr.error('CPF já cadastrado');
-
         }
       });
+    } else {
+      this.enviarFormulario();
     }
-    else {
-
-      this.enviarFormulario()
-    }
-
   }
 
   enviarFormulario(): void {
@@ -126,11 +133,9 @@ export class FormRegisterComponent implements OnInit {
     observable$.subscribe({
       next: (res) => {
         this.toastr.success('Formulário enviado com sucesso');
-        if(this.queryParams){
-          this.router.navigate(['..','registros'])
-        }
-        else{
-
+        if (this.queryParams) {
+          this.router.navigate(['..', 'registros']);
+        } else {
           this.formRegister.reset();
         }
       },
