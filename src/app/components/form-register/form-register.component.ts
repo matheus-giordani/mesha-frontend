@@ -91,6 +91,12 @@ export class FormRegisterComponent implements OnInit {
       return;
     }
 
+    /*
+      Verifica se o parâmetro de consulta está vazio,
+      busca registros e verifica se o CPF já está cadastrado.
+      Envia o formulário se o CPF não estiver cadastrado,
+      caso contrário exibe uma mensagem de erro.
+    */
     if (!this.queryParams) {
       this.commonService.getAll().subscribe((res) => {
         const result = res.find((value) => {
@@ -98,13 +104,18 @@ export class FormRegisterComponent implements OnInit {
         });
         if (!result) {
           this.enviarFormulario();
+
         } else {
           this.toastr.error('CPF já cadastrado');
+
         }
       });
     }
+    else {
 
-    this.enviarFormulario()
+      this.enviarFormulario()
+    }
+
   }
 
   enviarFormulario(): void {

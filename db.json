@@ -23,105 +23,26 @@
       "id": 1
     },
     {
-      "nome": "fdfasdfasd",
-      "email": "fasdfasdfasd@gmail.com",
-      "celular": "16516681635",
+      "nome": "eric coelho",
+      "email": "erIC@gmail.com",
+      "cpf": "12345678945",
+      "celular": "13245678965",
       "conhecimentos": [
         {
           "name": "Git",
           "code": 1
-        }
-      ],
-      "validacao": "Validado",
-      "id": 2
-    },
-    {
-      "nome": "sdasd",
-      "email": "adsdasd@gmail.com",
-      "cpf": "12341233412",
-      "celular": "12312312312",
-      "conhecimentos": [
+        },
+        {
+          "name": "React",
+          "code": 2
+        },
         {
           "name": "PHP",
           "code": 3
-        },
-        {
-          "name": "NodeJS",
-          "code": 4
-        },
-        {
-          "name": "TypeScript",
-          "code": 7
         }
       ],
-      "validacao": "Validado",
+      "validacao": null,
       "id": 3
-    },
-    {
-      "nome": "SVZXCVZXC",
-      "email": "matheusb@gmail.com",
-      "cpf": "35165165165",
-      "celular": "21654846521",
-      "conhecimentos": [
-        {
-          "name": "Git",
-          "code": 1
-        },
-        {
-          "name": "React",
-          "code": 2
-        },
-        {
-          "name": "PHP",
-          "code": 3
-        }
-      ],
-      "validacao": null,
-      "id": 4
-    },
-    {
-      "nome": "fasdfasdfsadfsadfsadf",
-      "email": "matheus.giordanioliveira@gmail.com",
-      "cpf": "12910785419",
-      "celular": "52165165165",
-      "conhecimentos": [
-        {
-          "name": "React",
-          "code": 2
-        },
-        {
-          "name": "Git",
-          "code": 1
-        },
-        {
-          "name": "PHP",
-          "code": 3
-        }
-      ],
-      "validacao": null,
-      "id": 5
-    },
-    {
-      "nome": "dfgsdfgsfdgsdfgfsdg",
-      "email": "matheus.giordanioliveir@gmail.com",
-      "cpf": "16516516516",
-      "celular": "81321651651",
-      "conhecimentos": [
-        {
-          "name": "Git",
-          "code": 1
-        },
-        {
-          "name": "React",
-          "code": 2
-        },
-        {
-          "name": "PHP",
-          "code": 3
-        }
-      ],
-      "validacao": null,
-      "id": 6
     }
   ]
 }

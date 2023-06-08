@@ -20,6 +20,7 @@ export class ListRegisterComponent implements OnInit {
       { field: 'id', header: 'Id' },
       { field: 'nome', header: 'Nome' },
       { field: 'email', header: 'Email' },
+      { field: 'cpf', header: 'CPF' },
       { field: 'celular', header: 'Celular' },
 
 
@@ -35,5 +36,5 @@ export class ListRegisterComponent implements OnInit {
       )
   }
 
-  
+
 }
