@@ -1,0 +1,79 @@
+<form class="container" [formGroup]="formRegister" (ngSubmit)="submit()">
+  <div class="row align-items-start">
+    <div class="col-12 col-md-4">
+      <label class="form-label">Nome</label>
+      <input
+        class="form-control"
+        type="text"
+        pInputText
+        formControlName="nome"
+      />
+    </div>
+    <div class="col-12 col-md-8">
+      <label class="form-label">E-mail</label>
+      <input
+        class="form-control"
+        type="text"
+        pInputText
+        formControlName="email"
+      />
+    </div>
+  </div>
+
+  <div class="row align-items-start mt-4">
+    <div class="col-12 col-md-4">
+      <label class="form-label">CPF</label>
+      <input
+        class="form-control"
+        type="text"
+        pInputText
+        formControlName="cpf"
+        [value]="formRegister.get('cpf')?.value | cpfFormat"
+        minlength="11"
+        maxlength="11"
+      />
+    </div>
+    <div class="col-12 col-md-4">
+      <label class="form-label">Celular</label>
+      <input
+        class="form-control"
+        type="text"
+        pInputText
+        formControlName="celular"
+        [value]="formRegister.get('celular')?.value | phoneFormat"
+        minlength="11"
+        maxlength="11"
+      />
+    </div>
+
+    <div class="col-12 col-md-4">
+      <label class="form-label"> Conhecimentos</label>
+      <p-multiSelect
+        [options]="listaConhecimentos"
+        formControlName="conhecimentos"
+        optionLabel="name"
+        [selectionLimit]="3"
+        styleClass="form-control"
+      ></p-multiSelect>
+    </div>
+  </div>
+  <div class="row align-items-end mt-4" *ngIf="queryParams">
+    <div class="align-self-end col-12 col-md-4">
+
+      <label>Validação</label>
+        <p-selectButton
+          [options]="stateOptions"
+          formControlName="validacao"
+          optionLabel="label"
+          optionValue="value"
+        ></p-selectButton>
+
+    </div>
+  </div>
+
+  <div class="row align-items-end mt-4">
+    <div class="align-self-end col-12 col-md-4">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
